@@ -1,4 +1,14 @@
 import mongoose from "mongoose";
-import("dotenv").config();
+import dotenv from "dotenv";
 
-const db=mongoose.Connection()
+dotenv.config();
+
+
+export const db = mongoose.connect(process.env.MONGO_URI)
+.then(()=>{
+    console.log(`✅ DB Connected Successfully !!`)
+})
+.catch(err=>{
+    console.log(err)
+})
+
